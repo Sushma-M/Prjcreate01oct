@@ -1,22 +1,151 @@
 {
-    "goToPage_Main": {
-        "category": "wm.NavigationVariable",
-        "operation": "gotoPage",
-        "pageName": "Main",
-        "_id": "wm-wm.NavigationVariable1389180517517",
-        "name": "goToPage_Main",
-        "owner": "App"
-    },
-    "supportedLocale": {
-        "name": "supportedLocale",
-        "type": "string",
-        "isList": false,
-        "owner": "App",
-        "dataSet": {
-            "en": "English"
-        },
-        "saveInPhonegap": false,
-        "category": "wm.Variable",
-        "_id": "wm-wm.Variable1402640443182"
-    }
+	"goToPage_Main": {
+		"name": "goToPage_Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Main-wm.NavigationVariable1389180517517"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"FeedServiceGetFeed": {
+		"type": "com.wavemaker.runtime.feed.model.Feed",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "FeedService",
+		"operation": "getFeed",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "FeedService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"methodType": "get",
+			"name": "getFeed",
+			"relativePath": "/feed",
+			"parameters": [
+				{
+					"name": "feedURL",
+					"parameterType": "query"
+				}
+			]
+		},
+		"_id": "wm-FeedServiceGetFeed-wm.ServiceVariable-1443679846771",
+		"name": "FeedServiceGetFeed"
+	},
+	"FeedServiceGetFeedWithHttpConfig": {
+		"type": "com.wavemaker.runtime.feed.model.Feed",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "feedURL",
+						"type": "string",
+						"value": "http://mail.google.com/mail/feed/atom"
+					},
+					{
+						"name": "httpBasicAuthUsername",
+						"type": "string",
+						"value": "bind:Widgets.usernametext.datavalue"
+					},
+					{
+						"name": "httpBasicAuthPassword",
+						"type": "string",
+						"value": "bind:Widgets.passwordtext.datavalue"
+					},
+					{
+						"name": "connectionTimeout",
+						"type": "integer",
+						"value": "1000"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "FeedService",
+		"operation": "getFeedWithHttpConfig",
+		"operationType": "get",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "FeedService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"methodType": "get",
+			"name": "getFeedWithHttpConfig",
+			"relativePath": "/feed/auth",
+			"parameters": [
+				{
+					"name": "feedURL",
+					"parameterType": "query"
+				},
+				{
+					"name": "httpBasicAuthUsername",
+					"parameterType": "query"
+				},
+				{
+					"name": "httpBasicAuthPassword",
+					"parameterType": "query"
+				},
+				{
+					"name": "connectionTimeout",
+					"parameterType": "query"
+				}
+			]
+		},
+		"_id": "wm-FeedServiceGetFeedWithHttpConfig-wm.ServiceVariable-1443679846777",
+		"name": "FeedServiceGetFeedWithHttpConfig"
+	}
 }
